@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Latticewave">
+<meta property="og:description" content="Latticewave invests in private technology companies.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://latticewave.com/">
+<title>Latticewave</title>
+<meta name="description" content="Latticewave invests in private technology companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one quiet left-aligned column under the logo lockup; a faint isometric lattice (the cube mark's geometry) fades in from the top right. */
+  :root {
+    --bg: #fbfbfd;
+    --fg: #191d3a;
+    --muted: #5d6286;
+    --rule: #e2e4ef;
+    --mark: #1e2970;
+    --mark-2: #aaafd5;
+    --lattice: rgba(30, 41, 112, 0.09);
+    --font: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c1024; --fg: #e8eaf6; --muted: #9ba0c4; --rule: #252a48;
+      --mark: #e8eaf6; --mark-2: #7c83c0; --lattice: rgba(170, 175, 213, 0.08);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c1024; --fg: #e8eaf6; --muted: #9ba0c4; --rule: #252a48;
+    --mark: #e8eaf6; --mark-2: #7c83c0; --lattice: rgba(170, 175, 213, 0.08);
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .lattice {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(760px, 85vw);
+    height: 560px;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 80% 90% at 100% 0%, #000 0%, transparent 72%);
+            mask-image: radial-gradient(ellipse 80% 90% at 100% 0%, #000 0%, transparent 72%);
+  }
+  .lattice path { stroke: var(--lattice); stroke-width: 1; fill: none; }
+
+  .wrap {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
+    padding-block: clamp(48px, 11vh, 128px) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 7vh, 64px);
+  }
+
+  .logo { display: block; width: clamp(200px, 46vw, 272px); height: auto; }
+  .logo .a { fill: var(--mark); }
+  .logo .b { fill: var(--mark-2); }
+
+  .lede {
+    margin: 0;
+    max-width: 30ch;
+    font-size: clamp(1.5rem, 1.05rem + 1.7vw, 2.125rem);
+    line-height: 1.28;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .rows { margin: 0; display: flex; flex-direction: column; }
+  .row {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 8px 24px;
+    padding-block: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .row:last-child { border-bottom: 1px solid var(--rule); }
+  .row dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 0.2em;
+  }
+  .row dd { margin: 0; max-width: 46ch; }
+
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--mark-2); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  footer p { margin: 0; max-width: 62ch; }
+  footer .fine { font-size: 0.6875rem; line-height: 1.5; max-width: 84ch; }
+
+  @media (max-width: 540px) {
+    .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <svg class="lattice" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Triangular (isometric) grid: verticals every 24px, diagonals at ±30° meeting on them -->
+      <pattern id="iso" width="48" height="27.7128" patternUnits="userSpaceOnUse" x="0" y="0">
+        <path d="M0 0V27.7128M24 0V27.7128M48 0V27.7128M0 0L48 27.7128M0 27.7128L48 0"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#iso)"/>
+  </svg>
+
+  <main class="wrap">
+    <header>
+      <svg class="logo" viewBox="490 300 3060 798" role="img" aria-label="Latticewave">
+        <g>
+          <path class="a" d="M933.5,865.9L933.5,865.9l-79.5,50v178.3l156.5-95.1l0.5-0.3V817.3v-0.1l-22.2,13.9L933.5,865.9z"/>
+          <polygon class="a" points="493.8,716.3 493.8,898.9 657.8,993.2 657.8,993.2 657.8,811.4 657.8,811.4"/>
+          <polygon class="a" points="493.8,696.5 657.8,791.6 657.8,614.9 493.8,517"/>
+          <polygon class="a" points="666.2,407.4 585.2,454.2 502.2,502.1 666.2,600 822.1,502"/>
+          <polygon class="a" points="1001.7,397.8 838.5,303.8 681.8,396.8 838.5,492"/>
+          <polygon class="a" points="1041.6,420.9 1041.4,420.8 1018.8,407.7 855.3,502 855.3,502.1 981.4,577.3 1019.4,600 1175.2,502"/>
+          <polygon class="a" points="1028,988 1183,890.4 1183,709.8 1028,806.6"/>
+          <polygon class="b" points="674.9,793 829.8,698.9 829.8,517.4 829.8,517.4 674.9,614.8"/>
+          <path class="b" d="M979.7,816.7l18-11.2l0,0l-159-91.8L684.9,807l0,0l13.7,8.3l0,0l-5.5-3.4l5.6,3.4l0,0l0.2,0.1c0,0-0.1,0-0.1-0.1l144.4,87.2l81.3-51.1L979.7,816.7z"/>
+          <polygon class="b" points="847,698.8 1010.9,793.4 1010.9,614.9 847,517"/>
+          <polygon class="a" points="1028,614.8 1028,786.5 1183,689.6 1183,517.4 1183,517.4"/>
+          <path class="a" d="M694.8,833l-2.5-1.5l-2.3-1.4l-0.2-0.1l-14.9-9l0,0v0.4v181.4l0,0l43,25.1l0.2,0.1l0,0l116.2,67.8V917.5l2.5,1.5v-0.3l-2.5-1.5L694.8,833z"/>
+        </g>
+        <g>
+          <path class="a" d="M1500.8,787.2H1402c-2.6,0-4.9-0.9-6.7-2.7c-1.8-1.8-2.7-4.1-2.7-6.7v-166c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-23.7c-2.6,0-4.9,0.9-6.7,2.7c-1.8,1.8-2.7,4.1-2.7,6.7v203.7c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h141.4c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-18.8c0-2.6-0.9-4.9-2.7-6.7S1503.4,787.2,1500.8,787.2z"/>
+          <path class="a" d="M1648.5,606c-1.2-2.4-3.2-3.6-6.1-3.6c-2.8,0-4.9,1.2-6.1,3.6l-105.5,210.7c-1,2.2-1.1,4.2-0.2,5.8c0.9,1.6,2.7,2.4,5.3,2.4h27.7c2.6,0,5.2-0.8,7.8-2.4c2.5-1.6,4.4-3.6,5.6-6.1l8.8-17.9c1-2.4,2.8-4.5,5.5-6.1c2.6-1.6,5.300-2.4,7.9-2.4h86.3c2.6,0,5.2,0.8,7.8,2.4c2.5,1.6,4.4,3.5,5.6,5.8l9.1,18.2c1,2.4,2.8,4.5,5.5,6.1c2.6,1.6,5.3,2.4,7.9,2.4h27.7c2.6,0,4.4-0.8,5.3-2.4c0.9-1.6,0.8-3.5-0.5-5.8L1648.5,606z M1670.3,750.3c-0.9,1.7-2.7,2.6-5.3,2.6h-45c-2.6,0-4.5-0.8-5.5-2.4c-1-1.6-1-3.6,0-6.1l24-50.2c1-2.4,2.3-3.6,4-3.6c1.6,0,2.9,1.2,4,3.6l23.7,50.2C1671.1,746.6,1671.2,748.6,1670.3,750.3z"/>
+          <path class="a" d="M1904.5,602.4h-151.1c-2.6,0-4.9,0.9-6.7,2.7c-1.8,1.8-2.7,4.1-2.7,6.7v18.8c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h45c2.6,0,4.9,0.9,6.7,2.7c1.8,1.8,2.7,4.1,2.7,6.7v166c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h23.7c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-166c0-2.6,0.9-4.9,2.7-6.7c1.8-1.8,4.1-2.7,6.7-2.7h44.7c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-18.8c0-2.6-0.9-4.9-2.7-6.7C1909.4,603.3,1907.1,602.4,1904.5,602.4z"/>
+          <path class="a" d="M2099.7,602.4h-151.1c-2.6,0-4.9,0.9-6.7,2.7c-1.8,1.8-2.7,4.1-2.7,6.7v18.8c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h45c2.6,0,4.9,0.9,6.7,2.7c1.8,1.8,2.7,4.1,2.7,6.7v166c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h23.7c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-166c0-2.6,0.9-4.9,2.7-6.7c1.8-1.8,4.1-2.7,6.7-2.7h44.7c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-18.8c0-2.6-0.9-4.9-2.7-6.7C2104.5,603.3,2102.3,602.4,2099.7,602.4z"/>
+          <path class="a" d="M2183.6,602.7h-24c-2.6,0-4.8,0.9-6.5,2.7c-1.7,1.8-2.6,4.1-2.6,6.7v203.4c0,2.6,0.9,4.9,2.6,6.7c1.7,1.8,3.9,2.7,6.5,2.7h24c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7V612.1c0-2.6-0.9-4.9-2.7-6.7C2188.4,603.6,2186.2,602.7,2183.6,602.7z"/>
+          <path class="a" d="M2305.3,661.2c6.4-7,14.1-12.6,23.1-16.7c9-4.2,18.5-6.2,28.4-6.2c6.5,0,12.6,0.9,18.2,2.7c6.5,2,12.1,4.6,16.7,7.6c5.7,3.6,10.4,7.4,14.3,11.2c2.8,2.8,4.9,5,6.1,6.4c1.6,2,3.8,3.4,6.5,4.1c2.7,0.7,5.2,0.6,7.4-0.5l22.5-9.1c2.4-1,4.1-2.6,4.9-4.9c0.8-2.2,0.5-4.4-0.9-6.4c-3.6-5.5-8-10.8-13.1-16.1c-7.5-7.5-15.5-13.7-23.9-18.7c-8.4-5-17.7-8.9-28-11.7c-10.2-2.8-20.5-4.3-30.9-4.3c-15.8,0-30.7,3-44.5,9.1c-13.9,6.1-26.1,14.4-36.6,24.9c-10.5,10.5-18.8,22.8-24.9,36.6c-6.1,13.9-9.1,28.7-9.1,44.5c0,15.8,3,30.7,9.1,44.7c6.1,14,14.3,26.2,24.8,36.6c10.4,10.4,22.6,18.7,36.6,24.8c14,6.1,28.9,9.1,44.7,9.1c10.3,0,20.7-1.4,31-4.3c9.5-2.6,18.8-6.6,28-12c9.1-5.4,17-11.6,23.7-18.7c4.3-4.3,8.6-9.6,13.1-16.1c1.4-2,1.7-4.2,0.9-6.5c-0.8-2.3-2.4-4-4.9-5l-22.5-9.1c-2.2-0.8-4.7-0.9-7.4-0.2c-2.7,0.7-4.9,2.1-6.5,4.1c-1.2,1.4-3.2,3.5-6.1,6.4c-3.6,3.9-8.4,7.7-14.3,11.6c-4.7,3-10.2,5.6-16.7,7.6c-5.7,1.8-11.8,2.7-18.2,2.7c-10.1,0-19.6-2.1-28.4-6.2c-8.8-4.2-16.5-9.7-23-16.7c-6.5-7-11.7-14.9-15.5-23.9c-3.9-8.9-5.8-18.5-5.8-28.7c0-10.2,1.9-19.9,5.8-28.9C2293.8,676.2,2298.9,668.2,2305.3,661.2z"/>
+          <path class="a" d="M2650.8,602.4h-145c-2.6,0-4.9,0.9-6.7,2.7c-1.8,1.8-2.7,4.1-2.7,6.7v203.7c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h145c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7V796c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-102.4c-2.6,0-4.9-0.9-6.7-2.7c-1.8-1.8-2.7-4.1-2.7-6.7v-33.4c0-2.6,0.9-4.9,2.7-6.7c1.8-1.8,4.1-2.7,6.7-2.7h88.8c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-19.8c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-88.8c-2.6,0-4.9-0.9-6.7-2.7c-1.8-1.8-2.7-4.1-2.7-6.7v-36.8c0-2.6,0.9-4.9,2.7-6.7c1.8-1.8,4.1-2.7,6.7-2.7h102.4c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-18.8c0-2.6-0.9-4.9-2.7-6.7C2655.7,603.3,2653.5,602.4,2650.8,602.4z"/>
+          <path class="a" d="M2974.1,605.3c-1.1-1.7-3-2.6-5.6-2.6h-26.4c-2.6,0-5.2,0.9-7.6,2.6c-2.4,1.7-4.1,3.8-4.9,6.2l-38.3,104.6c-0.8,2.4-1.9,3.6-3.3,3.6c-1.4,0-2.6-1.1-3.600-3.3l-48.3-110c-1-2.2-2.9-3.3-5.6-3.3c-2.7,0-4.6,1.1-5.6,3.3l-48.3,109.7c-1,2.2-2.2,3.3-3.6,3.3c-1.4,0-2.5-1.2-3.3-3.6L2732,611.5c-0.8-2.4-2.4-4.5-4.9-6.2c-2.4-1.7-5-2.6-7.6-2.6h-26.4c-2.6,0-4.5,0.9-5.6,2.6c-1.1,1.7-1.3,3.8-0.5,6.2l75.7,209.2c0.8,2.4,2.5,3.6,5.2,3.6c2.6,0,4.6-1.1,5.8-3.3l52.9-117c1-2.4,2.3-3.6,4-3.6c1.6,0,2.9,1.2,4,3.6l52.6,118c1,2.2,2.9,3.3,5.6,3.3c2.7,0,4.5-1.2,5.3-3.6l76.6-210.1C2975.4,609.1,2975.2,607,2974.1,605.3z"/>
+          <path class="a" d="M3068.2,606c-1.2-2.4-3.2-3.6-6.1-3.6c-2.8,0-4.9,1.2-6.1,3.6l-105.5,210.7c-1,2.2-1.1,4.2-0.2,5.8c0.9,1.6,2.7,2.4,5.3,2.4h27.7c2.6,0,5.2-0.8,7.8-2.4c2.5-1.6,4.4-3.6,5.6-6.1l8.8-17.9c1-2.4,2.8-4.5,5.5-6.1c2.6-1.6,5.3-2.4,7.9-2.4h86.3c2.6,0,5.2,0.8,7.8,2.4c2.5,1.6,4.4,3.5,5.6,5.8l9.1,18.2c1,2.4,2.8,4.5,5.5,6.1c2.6,1.6,5.3,2.4,7.9,2.4h27.7c2.6,0,4.4-0.8,5.3-2.4c0.9-1.6,0.8-3.5-0.5-5.8L3068.2,606z M3090,750.3c-0.9,1.7-2.7,2.6-5.3,2.6h-45c-2.6,0-4.5-0.8-5.5-2.4c-1-1.6-1-3.6,0-6.1l24-50.2c1-2.4,2.3-3.6,4-3.6c1.6,0,2.9,1.2,4,3.6l23.7,50.2C3090.8,746.6,3090.9,748.6,3090,750.3z"/>
+          <path class="a" d="M3345.2,602.7h-28.3c-2.6,0-5.3,0.8-7.9,2.4c-2.6,1.6-4.5,3.6-5.5,6.1l-52,111.9c-1,2.2-2.3,3.3-4,3.3c-1.6,0-2.9-1.1-4-3.3l-52-111.9c-1-2.4-2.8-4.5-5.5-6.1c-2.6-1.6-5.3-2.4-7.9-2.4H3150c-2.4,0-4.2,0.8-5.2,2.4c-1,1.6-1,3.6,0,6.1l97,209.8c1,2.2,2.9,3.3,5.8,3.3c2.8,0,4.8-1.1,5.8-3.3l97.3-209.8c1-2.4,1-4.5,0-6.1C3349.6,603.5,3347.8,602.7,3345.2,602.7z"/>
+          <path class="a" d="M3426,642.8c1.8-1.8,4.1-2.7,6.7-2.7h102.4c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-18.8c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-145c-2.6,0-4.9,0.9-6.7,2.7c-1.8,1.8-2.7,4.1-2.7,6.7v203.7c0,2.6,0.9,4.9,2.7,6.7c1.8,1.8,4.1,2.7,6.7,2.7h145c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7V796c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-102.4c-2.6,0-4.9-0.9-6.7-2.7c-1.8-1.8-2.7-4.1-2.7-6.7v-33.4c0-2.6,0.9-4.9,2.7-6.7c1.8-1.8,4.1-2.7,6.7-2.7h88.8c2.6,0,4.9-0.9,6.7-2.7c1.8-1.8,2.7-4.1,2.7-6.7v-19.8c0-2.6-0.9-4.9-2.7-6.7c-1.8-1.8-4.1-2.7-6.7-2.7h-88.8c-2.6,0-4.9-0.9-6.7-2.7c-1.8-1.8-2.7-4.1-2.7-6.7v-36.8C3423.3,646.9,3424.2,644.7,3426,642.8z"/>
+        </g>
+      </svg>
+    </header>
+
+    <p class="lede">Latticewave invests in private technology companies.</p>
+
+    <dl class="rows">
+      <div class="row">
+        <dt>What we do</dt>
+        <dd>Primary and secondary investments, directly and through funds, usually alongside a small group of partners.</dd>
+      </div>
+      <div class="row">
+        <dt>Contact</dt>
+        <dd><a href="mailto:info@latticewave.com">info@latticewave.com</a></dd>
+      </div>
+    </dl>
+
+    <footer>
+      <p>© 2026 Latticewave</p>
+      <p class="fine">This website is for informational purposes only. It is not an offer to sell, or a solicitation of an offer to buy, any security or interest in any fund or investment vehicle.</p>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
